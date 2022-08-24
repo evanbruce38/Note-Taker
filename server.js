@@ -23,7 +23,7 @@ app.get('/api/notes', (req, res) => {
     });
 });
 
-app.post('./api/notes', (req, res) => {
+app.post('/api/notes', (req, res) => {
     const data = {
         id: uniqid(),
         title: req.body.title,
@@ -36,7 +36,7 @@ app.post('./api/notes', (req, res) => {
     });
 });
 
-app.delete('./api.notes/:id', (req, res) => {
+app.delete('/api.notes/:id', (req, res) => {
     const params = req.params.id;
     const deleteArr = db_notes.filter(arrayContents => arrayContents.id != params);
     console.log(deleteArr);
@@ -46,7 +46,7 @@ app.delete('./api.notes/:id', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './public/index/html'));
+    res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 app.listen(PORT, () => {
